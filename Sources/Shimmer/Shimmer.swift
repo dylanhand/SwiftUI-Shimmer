@@ -1,9 +1,3 @@
-//
-//  Shimmer.swift
-//
-//  Created by Vikram Kriplaney on 23.03.21.
-//
-
 import SwiftUI
 
 /// A view modifier that applies an animated "shimmer" to any view, typically to show that
@@ -72,8 +66,8 @@ public struct Shimmer: ViewModifier {
                     .init(color: centerColor, location: phase + 0.1),
                     .init(color: edgeColor, location: phase + 0.2)
                 ]),
-                startPoint: isRightToLeft ? .bottomTrailing : .topLeading,
-                endPoint: isRightToLeft ? .topLeading : .bottomTrailing
+                startPoint: isRightToLeft ? .topTrailing : .topLeading,
+                endPoint: isRightToLeft ? .topLeading : .topTrailing
             )
         }
     }
@@ -130,6 +124,7 @@ struct Shimmer_Previews: PreviewProvider {
         .padding()
         .shimmering()
         .previewLayout(.sizeThatFits)
+        Shimmer.GradientMask(phase: 0.5)
     }
 }
 #endif
